@@ -4,454 +4,1084 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080611">
-<meta name="description" content="ZRX & MST em parceria com LordeHost. Confira preços de LordeCredits e Slots.">
-<title>ZRX & MST × LORDEHOST | Parceria</title>
+<meta name="theme-color" content="#090610">
+<meta name="description" content="ZRX & MST × LORDEHOST — parceria, tecnologia, qualidade e planos LordeCredits.">
+<title>ZRX & MST × LORDEHOST | Central Premium</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#080611;
+:root{
+  --bg:#090610;
+  --bg2:#10091c;
+  --card:rgba(25,16,39,.76);
   --purple:#a855f7;
-  --blue:#38bdf8;
-  --pink:#ec4899;
-  --border:#ffffff20;
-  --muted:#c2b6d2;
-  --gradient:linear-gradient(120deg,#9333ea,#2563eb);
+  --purple2:#7c3aed;
+  --gold:#e8c77b;
+  --gold2:#fff0bd;
+  --white:#fff;
+  --muted:#aaa1b8;
+  --border:rgba(210,170,255,.15);
+  --shadow:0 25px 80px rgba(0,0,0,.42);
+  --radius:24px;
 }
 
-* {
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-html {
+html{
   scroll-behavior:smooth;
-  scroll-padding-top:90px;
+  scroll-padding-top:100px;
 }
 
-body {
-  min-height:100vh;
+body{
+  font-family:'DM Sans',sans-serif;
+  color:var(--white);
+  background:
+    radial-gradient(ellipse at 15% 5%,rgba(111,42,165,.22),transparent 38%),
+    radial-gradient(ellipse at 90% 25%,rgba(132,81,31,.13),transparent 35%),
+    linear-gradient(145deg,#08050e,#10091b 50%,#090610);
   overflow-x:hidden;
-  background:var(--bg);
-  color:white;
-  font-family:Poppins,sans-serif;
+  min-height:100vh;
 }
 
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  background:url("https://raw.githubusercontent.com/hackermesteriozo-blip/ZRX-MST/main/WhatsApp%20Image%202026-11-13%20at%2021.55.11.jpeg") center/cover no-repeat;
-}
-
-body::after {
+body::before{
   content:"";
   position:fixed;
   inset:0;
   z-index:-1;
-  background:rgba(5,3,14,.94);
+  pointer-events:none;
+  opacity:.17;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:55px 55px;
 }
 
-a {
+a{
   color:inherit;
   text-decoration:none;
 }
 
-.container {
-  width:min(1100px,92%);
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1160px,calc(100% - 40px));
   margin:auto;
 }
 
-.gradient {
-  background:linear-gradient(90deg,#fff,#d8b4fe,#67e8f9);
-  -webkit-background-clip:text;
-  color:transparent;
+::selection{
+  background:var(--purple);
+  color:white;
 }
 
-header {
+/* BARRA DE PROGRESSO */
+
+.progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0;
+  background:linear-gradient(90deg,var(--purple),var(--gold));
+  z-index:9999;
+  box-shadow:0 0 15px var(--purple);
+}
+
+/* CABEÇALHO */
+
+header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:#080611ed;
+  z-index:1000;
+  background:rgba(9,6,16,.78);
+  backdrop-filter:blur(22px);
   border-bottom:1px solid var(--border);
-  backdrop-filter:blur(15px);
 }
 
-nav {
-  min-height:74px;
+.nav{
+  min-height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:25px;
 }
 
-.logo {
-  font:900 20px Orbitron;
-}
-
-.logo span {
-  color:var(--blue);
-}
-
-.links {
+.brand{
   display:flex;
-  gap:20px;
+  align-items:center;
+  gap:12px;
+  font-family:'Outfit',sans-serif;
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.3px;
 }
 
-.links a {
-  color:#ddd;
-  font-size:11px;
-}
-
-.links a:hover {
-  color:var(--blue);
-}
-
-.menu {
-  display:none;
-  padding:10px 14px;
-  border:1px solid var(--border);
-  border-radius:10px;
+.brand-icon{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:linear-gradient(135deg,#9b55e9,#4e207e);
   color:white;
-  background:#130d23;
-  font-size:20px;
+  box-shadow:0 0 25px rgba(168,85,247,.3);
+  font-size:18px;
 }
 
-.btn {
+.brand small{
+  display:block;
+  color:var(--gold);
+  font-family:'DM Sans',sans-serif;
+  font-size:9px;
+  letter-spacing:2px;
+  font-weight:700;
+  margin-top:2px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:27px;
+}
+
+.nav-links a{
+  color:#c6bdd1;
+  font-size:13px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.nav-cta{
+  padding:12px 18px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#24162b!important;
+  font-weight:900!important;
+  box-shadow:0 7px 25px rgba(232,199,123,.12);
+}
+
+.menu-toggle{
+  display:none;
+  border:1px solid var(--border);
+  background:#1b1127;
+  color:white;
+  border-radius:12px;
+  width:43px;
+  height:43px;
+  cursor:pointer;
+  font-size:21px;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:670px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+
+.hero-glow{
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:rgba(145,65,205,.15);
+  filter:blur(100px);
+  right:-130px;
+  top:40px;
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  padding:100px 0;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 15px;
+  border:1px solid rgba(232,199,123,.3);
+  background:rgba(232,199,123,.07);
+  border-radius:50px;
+  color:var(--gold2);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+
+.eyebrow-dot{
+  width:7px;
+  height:7px;
+  background:#b78aff;
+  border-radius:50%;
+  box-shadow:0 0 12px #b78aff;
+}
+
+.hero h1{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(43px,7vw,82px);
+  line-height:1.02;
+  letter-spacing:-3px;
+  margin:30px 0 22px;
+  font-weight:900;
+}
+
+.hero h1 .gradient{
+  background:linear-gradient(100deg,#fff 5%,#d9b8ff 42%,var(--gold) 90%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero h1 .second-line{
+  display:block;
+  color:#fff;
+}
+
+.hero-description{
+  color:#b9afc5;
+  font-size:16px;
+  line-height:1.9;
+  max-width:620px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:35px;
+}
+
+.btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:13px 19px;
-  border-radius:11px;
-  font-size:10px;
-  font-weight:800;
-  transition:.2s;
-}
-
-.primary {
-  background:var(--gradient);
-  color:white;
-}
-
-.outline {
-  border:1px solid var(--border);
-  background:#ffffff08;
-}
-
-.btn:hover {
-  transform:translateY(-3px);
-}
-
-.hero {
-  min-height:530px;
-  display:grid;
-  place-items:center;
-  padding:80px 0;
-  text-align:center;
-}
-
-.hero-content {
-  max-width:850px;
-}
-
-.eyebrow {
-  color:#67e8f9;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:3px;
-}
-
-.hero h1 {
-  margin:20px 0;
-  font:900 clamp(35px,7vw,75px)/1.2 Orbitron;
-}
-
-.hero p {
-  max-width:700px;
-  margin:auto;
-  color:var(--muted);
+  gap:10px;
+  padding:15px 23px;
+  border-radius:14px;
   font-size:13px;
-  line-height:2;
+  font-weight:900;
+  border:1px solid transparent;
+  transition:.3s;
+  cursor:pointer;
 }
 
-.hero-actions {
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+.btn-gold{
+  color:#25172c;
+  background:linear-gradient(120deg,#fff0bd,#dcb968);
+  box-shadow:0 12px 35px rgba(220,185,104,.15);
+}
+
+.btn-outline{
+  color:white;
+  border-color:rgba(255,255,255,.2);
+  background:rgba(255,255,255,.045);
+}
+
+.btn-outline:hover{
+  border-color:var(--gold);
+  color:var(--gold);
+}
+
+.hero-stats{
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
-  gap:12px;
-  margin-top:27px;
+  gap:35px;
+  margin-top:65px;
 }
 
-.partner-pill {
-  display:inline-block;
-  margin-top:25px;
-  padding:9px 15px;
-  border:1px solid #c084fc66;
-  border-radius:30px;
-  background:#a855f71b;
-  color:#eadbff;
-  font-size:10px;
-  font-weight:800;
+.stat strong{
+  display:block;
+  font-family:'Outfit',sans-serif;
+  font-size:24px;
+  color:var(--gold2);
 }
 
-section {
-  padding:75px 0;
+.stat span{
+  display:block;
+  color:#92899d;
+  font-size:11px;
+  margin-top:5px;
 }
 
-.section-heading {
-  max-width:720px;
-  margin:0 auto 38px;
+/* SEÇÕES */
+
+section{
+  padding:95px 0;
+}
+
+.section-heading{
   text-align:center;
+  max-width:720px;
+  margin:0 auto 48px;
 }
 
-.section-heading h2 {
-  margin:13px 0;
-  font:800 clamp(25px,4vw,39px) Orbitron;
+.section-tag{
+  display:inline-block;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-bottom:15px;
 }
 
-.section-heading p {
+.section-heading h2{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(30px,4vw,47px);
+  font-weight:900;
+  letter-spacing:-1.5px;
+  margin-bottom:15px;
+}
+
+.section-heading p{
   color:var(--muted);
-  font-size:12px;
-  line-height:1.9;
+  font-size:14px;
+  line-height:1.8;
 }
 
-.grid {
+/* CARDS DE BENEFÍCIOS */
+
+.features{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.card {
-  padding:25px;
+.feature-card{
+  position:relative;
+  padding:29px;
+  min-height:220px;
+  background:linear-gradient(145deg,rgba(34,22,49,.9),rgba(17,11,27,.8));
   border:1px solid var(--border);
-  border-radius:19px;
-  background:#130d23ed;
-  transition:.25s;
+  border-radius:22px;
+  overflow:hidden;
+  transition:.35s;
 }
 
-.card:hover {
-  transform:translateY(-5px);
-  border-color:#38bdf877;
+.feature-card::after{
+  content:"";
+  position:absolute;
+  width:140px;
+  height:140px;
+  right:-65px;
+  bottom:-75px;
+  border-radius:50%;
+  background:rgba(168,85,247,.13);
+  filter:blur(25px);
 }
 
-.icon {
-  width:50px;
-  height:50px;
+.feature-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(232,199,123,.4);
+  box-shadow:var(--shadow);
+}
+
+.feature-icon{
+  width:48px;
+  height:48px;
   display:grid;
   place-items:center;
-  margin-bottom:16px;
-  border-radius:14px;
-  background:#a855f722;
-  font-size:23px;
+  background:rgba(168,85,247,.12);
+  border:1px solid rgba(168,85,247,.2);
+  border-radius:15px;
+  font-size:22px;
+  margin-bottom:22px;
 }
 
-.card h3 {
-  margin-bottom:9px;
-  font-size:15px;
+.feature-card h3{
+  font-family:'Outfit',sans-serif;
+  font-size:19px;
+  margin-bottom:10px;
 }
 
-.card p {
+.feature-card p{
   color:var(--muted);
-  font-size:11px;
-  line-height:1.9;
+  font-size:13px;
+  line-height:1.8;
 }
 
-.table-wrap {
-  overflow-x:auto;
-  border:1px solid var(--border);
-  border-radius:17px;
-  background:#130d23ed;
+/* FAIXA DE PARCERIA */
+
+.partnership{
+  padding:0 0 30px;
 }
 
-table {
-  width:100%;
-  min-width:450px;
-  border-collapse:collapse;
+.partnership-panel{
+  position:relative;
+  overflow:hidden;
+  padding:45px;
+  border:1px solid rgba(232,199,123,.25);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(168,85,247,.22),transparent 38%),
+    linear-gradient(120deg,#1a1025,#100b18);
+  box-shadow:var(--shadow);
 }
 
-th,td {
-  padding:17px 20px;
-  border-bottom:1px solid #ffffff12;
-  text-align:left;
-  font-size:12px;
+.partnership-panel::before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-100px;
+  bottom:-150px;
+  border-radius:50%;
+  background:rgba(232,199,123,.1);
+  filter:blur(30px);
 }
 
-th {
-  color:#e9d5ff;
-  background:#a855f71b;
+.partnership-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.partnership-label{
+  color:var(--gold);
   font-size:10px;
+  letter-spacing:2px;
+  font-weight:900;
+}
+
+.partnership-status{
+  padding:8px 13px;
+  border-radius:50px;
+  background:rgba(72,187,120,.1);
+  border:1px solid rgba(72,187,120,.25);
+  color:#8be4a8;
+  font-size:10px;
+  font-weight:800;
+}
+
+.partnership-names{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.partnership-name{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(26px,4vw,43px);
+  font-weight:900;
+}
+
+.partnership-name.lorde{
+  color:var(--gold2);
+}
+
+.partnership-x{
+  color:var(--purple);
+  font-size:30px;
+  font-weight:900;
+}
+
+.partnership-copy{
+  position:relative;
+  z-index:1;
+  max-width:700px;
+  margin:22px auto 0;
+  text-align:center;
+  color:#bcb1c8;
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* LORDCREDITS */
+
+.pricing-section{
+  background:linear-gradient(180deg,transparent,rgba(30,16,44,.3),transparent);
+}
+
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.price-card{
+  position:relative;
+  padding:28px 25px;
+  background:linear-gradient(150deg,rgba(32,21,46,.95),rgba(15,10,23,.95));
+  border:1px solid var(--border);
+  border-radius:22px;
+  transition:.35s;
+  overflow:hidden;
+}
+
+.price-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(232,199,123,.55);
+  box-shadow:0 20px 55px rgba(0,0,0,.35);
+}
+
+.price-card.featured{
+  border-color:rgba(232,199,123,.48);
+  background:linear-gradient(145deg,rgba(65,42,70,.72),rgba(20,12,28,.98));
+}
+
+.price-card.featured::before{
+  content:"DESTAQUE";
+  position:absolute;
+  top:17px;
+  right:-30px;
+  transform:rotate(35deg);
+  background:linear-gradient(90deg,#fff0bd,#d6ae5b);
+  color:#24162b;
+  padding:6px 35px;
+  font-size:8px;
+  font-weight:900;
   letter-spacing:1px;
 }
 
-td:last-child {
-  color:#e9d5ff;
-  font-weight:800;
-  font-family:Orbitron;
+.price-number{
+  font-family:'Outfit',sans-serif;
+  font-size:32px;
+  font-weight:900;
+  color:var(--gold2);
+  margin:12px 0 5px;
 }
 
-tbody tr:last-child td {
-  border-bottom:0;
+.price-number small{
+  font-size:13px;
+  color:#c1b5ca;
 }
 
-tbody tr:hover {
-  background:#ffffff08;
+.price-card h3{
+  color:#eee5f6;
+  font-size:14px;
 }
 
-.notice {
-  margin-top:17px;
-  padding:16px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:#a855f711;
-  color:#e8dcf7;
-  font-size:11px;
-  line-height:1.9;
-}
-
-.slot {
-  text-align:center;
-}
-
-.slot .icon {
-  margin:0 auto 15px;
-}
-
-.slot-price {
-  margin:14px 0;
-  color:#e9d5ff;
-  font:900 29px Orbitron;
-}
-
-.partner-banner {
-  padding:40px 25px;
-  border:1px solid #c084fc66;
-  border-radius:22px;
-  background:linear-gradient(120deg,#9333ea30,#2563eb22);
-  text-align:center;
-}
-
-.partner-banner h2 {
-  font:800 clamp(22px,4vw,34px) Orbitron;
-}
-
-.partner-banner p {
-  max-width:650px;
-  margin:15px auto 22px;
-  color:var(--muted);
+.price-card p{
+  color:#95899f;
   font-size:12px;
-  line-height:1.9;
+  margin-top:10px;
+  line-height:1.7;
 }
 
-.link-card {
-  text-align:center;
+.price-divider{
+  height:1px;
+  background:var(--border);
+  margin:20px 0;
 }
 
-.link-card .icon {
-  margin:0 auto 15px;
+.price-detail{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#bdb2c9;
+  font-size:11px;
 }
 
-.link-card .btn {
-  width:100%;
-  margin-top:17px;
+.price-detail strong{
+  color:#fff;
 }
 
-footer {
-  padding:40px 0 25px;
-  border-top:1px solid var(--border);
-  background:#05030df2;
-  text-align:center;
-}
-
-.footer-logo {
-  font:900 25px Orbitron;
-}
-
-.footer-links {
+.price-buy{
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;
+  margin-top:22px;
+  padding:12px;
+  border-radius:11px;
+  background:rgba(168,85,247,.12);
+  border:1px solid rgba(168,85,247,.22);
+  color:#e3c8ff;
+  font-size:11px;
+  font-weight:900;
+  transition:.25s;
+}
+
+.price-buy:hover{
+  background:rgba(168,85,247,.24);
+  border-color:var(--purple);
+}
+
+/* SLOTS */
+
+.slots-section{
+  padding-top:50px;
+}
+
+.slots-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
   gap:18px;
-  margin:22px 0;
 }
 
-.footer-links a {
-  color:#ddd;
-  font-size:10px;
-}
-
-.copy {
-  color:#9589a9;
-  font-size:10px;
-  line-height:2;
-}
-
-.progress {
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:500;
-  width:0;
-  height:3px;
-  background:var(--gradient);
-}
-
-.top {
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:42px;
-  height:42px;
+.slot-card{
+  text-align:center;
+  padding:32px 20px;
   border:1px solid var(--border);
-  border-radius:50%;
-  color:white;
-  background:#160e29;
+  border-radius:22px;
+  background:rgba(25,16,39,.75);
+  transition:.3s;
+}
+
+.slot-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(232,199,123,.45);
+}
+
+.slot-icon{
+  font-size:30px;
+  margin-bottom:16px;
+}
+
+.slot-card h3{
+  font-family:'Outfit',sans-serif;
+  font-size:21px;
+}
+
+.slot-price{
+  font-family:'Outfit',sans-serif;
+  color:var(--gold2);
+  font-size:30px;
+  font-weight:900;
+  margin:10px 0;
+}
+
+.slot-card p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* COMO FUNCIONA */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  counter-reset:steps;
+}
+
+.step{
+  position:relative;
+  padding:27px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:rgba(23,15,34,.7);
+  counter-increment:steps;
+}
+
+.step::before{
+  content:"0" counter(steps);
+  display:block;
+  font-family:'Outfit',sans-serif;
+  color:var(--gold);
+  font-size:27px;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.step h3{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* CTA */
+
+.cta{
+  padding-top:35px;
+}
+
+.cta-box{
+  text-align:center;
+  padding:65px 30px;
+  border:1px solid rgba(232,199,123,.25);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(168,85,247,.2),transparent 55%),
+    linear-gradient(140deg,#1b1026,#0c0812);
+  box-shadow:var(--shadow);
+}
+
+.cta-box h2{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(28px,4vw,43px);
+  margin-bottom:15px;
+}
+
+.cta-box p{
+  max-width:600px;
+  margin:0 auto 27px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* LINKS OFICIAIS */
+
+.links-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:17px;
+}
+
+.link-card{
+  display:flex;
+  align-items:center;
+  gap:17px;
+  padding:22px;
+  background:rgba(25,16,39,.75);
+  border:1px solid var(--border);
+  border-radius:18px;
+  transition:.3s;
+}
+
+.link-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(232,199,123,.4);
+}
+
+.link-icon{
+  width:47px;
+  height:47px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  background:rgba(168,85,247,.13);
+  border-radius:14px;
+  font-size:21px;
+}
+
+.link-info strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.link-info span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.link-arrow{
+  margin-left:auto;
+  color:var(--gold);
   font-size:20px;
-  opacity:0;
-  visibility:hidden;
+}
+
+/* FAQ */
+
+.faq-list{
+  max-width:800px;
+  margin:auto;
+  display:grid;
+  gap:12px;
+}
+
+.faq-item{
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:rgba(25,16,39,.7);
+  overflow:hidden;
+}
+
+.faq-question{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:white;
+  text-align:left;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
   cursor:pointer;
+  font-weight:800;
+  font-size:13px;
 }
 
-.top.show {
+.faq-question span:last-child{
+  color:var(--gold);
+  font-size:20px;
+  transition:.25s;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+
+.faq-answer p{
+  padding:0 20px 20px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.faq-item.active .faq-answer{
+  max-height:180px;
+}
+
+.faq-item.active .faq-question span:last-child{
+  transform:rotate(45deg);
+}
+
+/* RODAPÉ */
+
+footer{
+  margin-top:80px;
+  border-top:1px solid var(--border);
+  background:rgba(5,3,10,.65);
+  padding:45px 0 25px;
+}
+
+.footer-main{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  flex-wrap:wrap;
+  padding-bottom:35px;
+}
+
+.footer-about{
+  max-width:390px;
+}
+
+.footer-about p{
+  margin-top:15px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.footer-column h4{
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.footer-column a{
+  display:block;
+  color:#a89db4;
+  font-size:12px;
+  margin:10px 0;
+  transition:.2s;
+}
+
+.footer-column a:hover{
+  color:white;
+}
+
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding-top:22px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  color:#81768c;
+  font-size:10px;
+}
+
+.footer-bottom strong{
+  color:var(--gold);
+}
+
+/* BOTÃO TOPO */
+
+.back-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:900;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  border:1px solid rgba(232,199,123,.3);
+  background:rgba(30,18,43,.92);
+  color:var(--gold2);
+  font-size:20px;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:.3s;
+}
+
+.back-top.show{
   opacity:1;
-  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0);
 }
 
-@media(max-width:750px) {
-  .menu {
-    display:block;
-  }
+/* ANIMAÇÕES */
 
-  .links {
-    display:none;
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.brand-icon{
+  animation:float 4s ease-in-out infinite;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width:850px){
+  .nav-links{
     position:absolute;
-    top:74px;
+    top:78px;
     left:0;
     right:0;
-    padding:15px 5%;
-    background:#080611;
+    display:none;
     flex-direction:column;
-  }
-
-  .links.open {
-    display:flex;
-  }
-
-  .links a {
-    padding:10px 0;
+    align-items:stretch;
+    gap:0;
+    padding:12px 20px 20px;
+    background:rgba(10,6,17,.98);
     border-bottom:1px solid var(--border);
   }
 
-  .grid {
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+    padding:15px 5px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .features,
+  .price-grid,
+  .steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    min-height:600px;
+  }
+}
+
+@media(max-width:600px){
+  .container{
+    width:min(100% - 30px,1160px);
+  }
+
+  section{
+    padding:70px 0;
+  }
+
+  .hero-content{
+    padding:85px 0;
+  }
+
+  .hero h1{
+    letter-spacing:-1.8px;
+  }
+
+  .hero-description{
+    font-size:14px;
+  }
+
+  .hero-stats{
+    gap:22px;
+  }
+
+  .stat strong{
+    font-size:21px;
+  }
+
+  .features,
+  .price-grid,
+  .slots-grid,
+  .steps,
+  .links-grid{
     grid-template-columns:1fr;
   }
 
-  section {
-    padding:60px 0;
+  .partnership-panel{
+    padding:30px 18px;
+  }
+
+  .partnership-names{
+    gap:12px;
+  }
+
+  .partnership-x{
+    font-size:22px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .hero-actions .btn{
+    width:100%;
+  }
+
+  .footer-main{
+    flex-direction:column;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
   }
 }
 </style>
@@ -462,290 +1092,615 @@ footer {
 <div class="progress" id="progress"></div>
 
 <header>
-<nav class="container">
-  <a class="logo" href="index.html">ZRX <span>&</span> MST</a>
+  <div class="container nav">
 
-  <div class="links" id="links">
-    <a href="index.html">Página inicial</a>
-    <a href="#creditos">LordeCredits</a>
-    <a href="#slots">Slots</a>
-    <a href="#parceria">Parceria</a>
-    <a href="#oficiais">Links oficiais</a>
+    <a href="#inicio" class="brand">
+      <div class="brand-icon">Z</div>
+      <div>
+        ZRX & MST
+        <small>PREMIUM PARTNERSHIP</small>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">Início</a>
+      <a href="#parceria">Parceria</a>
+      <a href="#creditos">LordeCredits</a>
+      <a href="#slots">Slots</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="nav-cta">Acessar LordeHost ↗</a>
+    </nav>
+
   </div>
-
-  <button class="menu" id="menu" aria-label="Abrir menu">☰</button>
-</nav>
 </header>
 
 <main>
 
-<section class="hero">
-<div class="hero-content container">
+<!-- HERO -->
 
-<div class="eyebrow">✦ TECNOLOGIA • CONEXÃO • PARCERIA ✦</div>
+<section class="hero" id="inicio">
+  <div class="hero-glow"></div>
 
-<h1 class="gradient">ZRX & MST<br>× LORDEHOST</h1>
+  <div class="container">
+    <div class="hero-content">
 
-<p>
-Uma página especial para apresentar a parceria ZRX & MST com a LordeHost.
-Confira os valores informados de LordeCredits, Slots e os canais oficiais.
-</p>
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        PARCERIA EM DESTAQUE
+      </div>
 
-<div class="hero-actions">
-<a href="#creditos" class="btn primary">💎 VER PREÇOS</a>
-<a href="https://lordehost.com.br" target="_blank" rel="noopener noreferrer" class="btn outline">🌐 SITE LORDEHOST</a>
-</div>
+      <h1>
+        <span class="gradient">ZRX & MST</span>
+        <span class="second-line">× LORDEHOST</span>
+      </h1>
 
-<div class="partner-pill">🤝 ZRX & MST — PARCEIRO LORDEHOST</div>
+      <p class="hero-description">
+        Uma parceria que conecta tecnologia, praticidade e inovação.
+        Conheça os planos LordeCredits, confira as opções de Slots
+        e acesse os canais oficiais da LordeHost.
+      </p>
 
-</div>
+      <div class="hero-actions">
+        <a href="#creditos" class="btn btn-gold">✦ Explorar preços</a>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="btn btn-outline">Conhecer LordeHost ↗</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>06</strong>
+          <span>Opções de créditos</span>
+        </div>
+        <div class="stat">
+          <strong>30 dias</strong>
+          <span>Validade dos planos</span>
+        </div>
+        <div class="stat">
+          <strong>03</strong>
+          <span>Opções de Slots</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section id="parceria">
-<div class="container">
-
-<div class="section-heading">
-<div class="eyebrow">NOSSA CONEXÃO</div>
-<h2>Parceria <span class="gradient">ZRX & MST + LORDEHOST</span></h2>
-<p>
-Este espaço apresenta informações da LordeHost divulgadas pela ZRX & MST.
-</p>
-</div>
-
-<div class="grid">
-
-<article class="card">
-<div class="icon">🤝</div>
-<h3>Parceria</h3>
-<p>Divulgação e aproximação da comunidade com a plataforma LordeHost.</p>
-</article>
-
-<article class="card">
-<div class="icon">💎</div>
-<h3>LordeCredits</h3>
-<p>Confira os valores informados para os pacotes de créditos.</p>
-</article>
-
-<article class="card">
-<div class="icon">🎟️</div>
-<h3>Slots</h3>
-<p>Consulte as opções de Slots e os valores apresentados.</p>
-</article>
-
-</div>
-</div>
-</section>
-
-<section id="creditos">
-<div class="container">
-
-<div class="section-heading">
-<div class="eyebrow">TABELA DE PREÇOS</div>
-<h2>💎 LORDEHOST — <span class="gradient">LORDECREDITS</span></h2>
-<p>Confira a tabela de valores informada.</p>
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Quantidade</th>
-<th>Valor</th>
-<th>Validade</th>
-</tr>
-</thead>
-
-<tbody>
-<tr><td>100 LordeCredits</td><td>R$ 7,00</td><td>30 dias</td></tr>
-<tr><td>200 LordeCredits</td><td>R$ 11,00</td><td>30 dias</td></tr>
-<tr><td>300 LordeCredits</td><td>R$ 15,00</td><td>30 dias</td></tr>
-<tr><td>400 LordeCredits</td><td>R$ 19,00</td><td>30 dias</td></tr>
-<tr><td>500 LordeCredits</td><td>R$ 25,00</td><td>30 dias</td></tr>
-<tr><td>600 LordeCredits</td><td>R$ 35,00</td><td>30 dias</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="notice">
-⏳ <strong>Validade:</strong> todos os pacotes apresentados têm duração informada de 30 dias (1 mês). Confirme as condições diretamente com a LordeHost.
-</div>
-
-</div>
-</section>
-
-<section id="slots">
-<div class="container">
-
-<div class="section-heading">
-<div class="eyebrow">OPÇÕES DISPONÍVEIS</div>
-<h2>Tabela de <span class="gradient">Slots</span></h2>
-<p>Confira os valores apresentados para cada quantidade.</p>
-</div>
-
-<div class="grid">
-
-<article class="card slot">
-<div class="icon">🎟️</div>
-<h3>1 Slot</h3>
-<div class="slot-price">R$ 3,00</div>
-<p>Opção com 1 Slot.</p>
-</article>
-
-<article class="card slot">
-<div class="icon">🎟️🎟️</div>
-<h3>2 Slots</h3>
-<div class="slot-price">R$ 6,00</div>
-<p>Opção com 2 Slots.</p>
-</article>
-
-<article class="card slot">
-<div class="icon">🎟️🎟️🎟️</div>
-<h3>3 Slots</h3>
-<div class="slot-price">R$ 9,00</div>
-<p>Opção com 3 Slots.</p>
-</article>
-
-</div>
-
-<div class="notice">
-Os preços são informativos. Consulte a plataforma para confirmar disponibilidade e condições antes de contratar.
-</div>
-
-</div>
-</section>
+<!-- BENEFÍCIOS -->
 
 <section>
-<div class="container">
-<div class="partner-banner">
-<h2>🚀 LORDEHOST — <span class="gradient">TECNOLOGIA E CONFIANÇA</span></h2>
-<p>
-Conheça o site da LordeHost e participe do grupo oficial de clientes para acompanhar informações e comunicados.
-</p>
-<a href="https://lordehost.com.br" target="_blank" rel="noopener noreferrer" class="btn primary">ACESSAR SITE OFICIAL ↗</a>
-</div>
-</div>
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">Nossa proposta</span>
+      <h2>Uma experiência mais completa</h2>
+      <p>
+        Conheça os destaques desta parceria e encontre as informações
+        principais em um único lugar.
+      </p>
+    </div>
+
+    <div class="features">
+
+      <article class="feature-card reveal">
+        <div class="feature-icon">💎</div>
+        <h3>Planos acessíveis</h3>
+        <p>
+          Confira diferentes quantidades de LordeCredits e escolha
+          a opção que corresponde ao que você procura.
+        </p>
+      </article>
+
+      <article class="feature-card reveal">
+        <div class="feature-icon">⚡</div>
+        <h3>Informações organizadas</h3>
+        <p>
+          Consulte valores, validade e opções de Slots de maneira
+          simples, clara e objetiva.
+        </p>
+      </article>
+
+      <article class="feature-card reveal">
+        <div class="feature-icon">🤝</div>
+        <h3>Parceria ZRX & MST</h3>
+        <p>
+          Uma página especial para apresentar a parceria e direcionar
+          você aos canais oficiais da LordeHost.
+        </p>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<section id="oficiais">
-<div class="container">
+<!-- PARCERIA -->
 
-<div class="section-heading">
-<div class="eyebrow">CANAIS DE ACESSO</div>
-<h2>Links <span class="gradient">oficiais</span></h2>
-<p>Acesse os endereços informados da LordeHost.</p>
-</div>
+<section class="partnership" id="parceria">
+  <div class="container">
 
-<div class="grid">
+    <div class="partnership-panel reveal">
 
-<article class="card link-card">
-<div class="icon">🌐</div>
-<h3>Site LordeHost</h3>
-<p>Acesse o site da plataforma.</p>
-<a href="https://lordehost.com.br" target="_blank" rel="noopener noreferrer" class="btn primary">VISITAR SITE ↗</a>
-</article>
+      <div class="partnership-top">
+        <span class="partnership-label">CONEXÃO • TECNOLOGIA • PARCERIA</span>
+        <span class="partnership-status">● PARCERIA EM DESTAQUE</span>
+      </div>
 
-<article class="card link-card">
-<div class="icon">💬</div>
-<h3>Grupo oficial</h3>
-<p>Grupo oficial de clientes.</p>
-<a href="https://chat.whatsapp.com/LK0yHAuKkUX3xpUM90ugII" target="_blank" rel="noopener noreferrer" class="btn primary">ENTRAR NO GRUPO ↗</a>
-</article>
+      <div class="partnership-names">
+        <div class="partnership-name">ZRX & MST</div>
+        <div class="partnership-x">×</div>
+        <div class="partnership-name lorde">LORDEHOST</div>
+      </div>
 
-<article class="card link-card">
-<div class="icon">🏠</div>
-<h3>ZRX & MST</h3>
-<p>Volte para a página principal.</p>
-<a href="index.html" class="btn outline">VOLTAR AO SITE ↗</a>
-</article>
+      <p class="partnership-copy">
+        Esta página foi criada pela ZRX & MST para apresentar
+        nossa parceria com a LordeHost e facilitar o acesso às
+        informações de preços e aos canais oficiais.
+      </p>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
+
+<!-- CRÉDITOS -->
+
+<section class="pricing-section" id="creditos">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">Tabela de preços</span>
+      <h2>💎 LordeCredits</h2>
+      <p>
+        Escolha uma das opções disponíveis. Todos os planos apresentados
+        possuem validade de 30 dias (1 mês).
+      </p>
+    </div>
+
+    <div class="price-grid">
+
+      <article class="price-card reveal">
+        <h3>Plano Starter</h3>
+        <div class="price-number">R$ 7,00</div>
+        <p>100 LordeCredits</p>
+        <div class="price-divider"></div>
+        <div class="price-detail">
+          <span>Quantidade</span>
+          <strong>100 créditos</strong>
+        </div>
+        <div class="price-detail" style="margin-top:12px">
+          <span>Validade</span>
+          <strong>30 dias</strong>
+        </div>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="price-buy">Consultar na LordeHost ↗</a>
+      </article>
+
+      <article class="price-card reveal">
+        <h3>Plano Basic</h3>
+        <div class="price-number">R$ 11,00</div>
+        <p>200 LordeCredits</p>
+        <div class="price-divider"></div>
+        <div class="price-detail">
+          <span>Quantidade</span>
+          <strong>200 créditos</strong>
+        </div>
+        <div class="price-detail" style="margin-top:12px">
+          <span>Validade</span>
+          <strong>30 dias</strong>
+        </div>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="price-buy">Consultar na LordeHost ↗</a>
+      </article>
+
+      <article class="price-card featured reveal">
+        <h3>Plano Plus</h3>
+        <div class="price-number">R$ 15,00</div>
+        <p>300 LordeCredits</p>
+        <div class="price-divider"></div>
+        <div class="price-detail">
+          <span>Quantidade</span>
+          <strong>300 créditos</strong>
+        </div>
+        <div class="price-detail" style="margin-top:12px">
+          <span>Validade</span>
+          <strong>30 dias</strong>
+        </div>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="price-buy">Consultar na LordeHost ↗</a>
+      </article>
+
+      <article class="price-card reveal">
+        <h3>Plano Advanced</h3>
+        <div class="price-number">R$ 19,00</div>
+        <p>400 LordeCredits</p>
+        <div class="price-divider"></div>
+        <div class="price-detail">
+          <span>Quantidade</span>
+          <strong>400 créditos</strong>
+        </div>
+        <div class="price-detail" style="margin-top:12px">
+          <span>Validade</span>
+          <strong>30 dias</strong>
+        </div>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="price-buy">Consultar na LordeHost ↗</a>
+      </article>
+
+      <article class="price-card reveal">
+        <h3>Plano Premium</h3>
+        <div class="price-number">R$ 25,00</div>
+        <p>500 LordeCredits</p>
+        <div class="price-divider"></div>
+        <div class="price-detail">
+          <span>Quantidade</span>
+          <strong>500 créditos</strong>
+        </div>
+        <div class="price-detail" style="margin-top:12px">
+          <span>Validade</span>
+          <strong>30 dias</strong>
+        </div>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="price-buy">Consultar na LordeHost ↗</a>
+      </article>
+
+      <article class="price-card reveal">
+        <h3>Plano Ultimate</h3>
+        <div class="price-number">R$ 35,00</div>
+        <p>600 LordeCredits</p>
+        <div class="price-divider"></div>
+        <div class="price-detail">
+          <span>Quantidade</span>
+          <strong>600 créditos</strong>
+        </div>
+        <div class="price-detail" style="margin-top:12px">
+          <span>Validade</span>
+          <strong>30 dias</strong>
+        </div>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="price-buy">Consultar na LordeHost ↗</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SLOTS -->
+
+<section class="slots-section" id="slots">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">Opções disponíveis</span>
+      <h2>⚙️ Planos de Slots</h2>
+      <p>
+        Confira as opções de Slots e consulte os detalhes diretamente
+        com a equipe responsável pela plataforma.
+      </p>
+    </div>
+
+    <div class="slots-grid">
+
+      <article class="slot-card reveal">
+        <div class="slot-icon">🔹</div>
+        <h3>1 Slot</h3>
+        <div class="slot-price">R$ 3,00</div>
+        <p>Opção com 1 Slot</p>
+      </article>
+
+      <article class="slot-card reveal">
+        <div class="slot-icon">🔷</div>
+        <h3>2 Slots</h3>
+        <div class="slot-price">R$ 6,00</div>
+        <p>Opção com 2 Slots</p>
+      </article>
+
+      <article class="slot-card reveal">
+        <div class="slot-icon">💠</div>
+        <h3>3 Slots</h3>
+        <div class="slot-price">R$ 9,00</div>
+        <p>Opção com 3 Slots</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
 
 <section>
-<div class="container">
-<div class="partner-banner">
-<h2>💜 Agradecemos pela preferência!</h2>
-<p>
-🚀 LORDEHOST — QUALIDADE, TECNOLOGIA E CONFIANÇA!
-<br>Sua satisfação é nossa prioridade!
-</p>
-<a href="https://chat.whatsapp.com/LK0yHAuKkUX3xpUM90ugII" target="_blank" rel="noopener noreferrer" class="btn outline">💬 GRUPO OFICIAL</a>
-</div>
-</div>
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">Passo a passo</span>
+      <h2>Como consultar os planos?</h2>
+      <p>
+        Um processo simples para você encontrar as informações
+        diretamente nos canais da plataforma.
+      </p>
+    </div>
+
+    <div class="steps">
+
+      <article class="step reveal">
+        <h3>Escolha sua opção</h3>
+        <p>
+          Confira a tabela e identifique o plano de LordeCredits
+          ou a quantidade de Slots desejada.
+        </p>
+      </article>
+
+      <article class="step reveal">
+        <h3>Acesse o site oficial</h3>
+        <p>
+          Entre na LordeHost para consultar as condições,
+          informações e detalhes atualizados.
+        </p>
+      </article>
+
+      <article class="step reveal">
+        <h3>Confirme os detalhes</h3>
+        <p>
+          Antes de contratar, confira os valores e as condições
+          diretamente com a equipe responsável.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+
+      <span class="section-tag">Acesse a plataforma</span>
+
+      <h2>Conheça a LordeHost</h2>
+
+      <p>
+        Quer conferir os serviços e obter mais informações?
+        Acesse o site oficial da LordeHost e conheça a plataforma.
+      </p>
+
+      <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="btn btn-gold">
+        Acessar site oficial ↗
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+
+<section>
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">Comunidade</span>
+      <h2>Conecte-se com a LordeHost</h2>
+      <p>
+        Utilize os canais abaixo para acessar a comunidade
+        e acompanhar as informações da plataforma.
+      </p>
+    </div>
+
+    <div class="links-grid">
+
+      <a href="https://lordehost.com.br" target="_blank" rel="noopener" class="link-card reveal">
+        <div class="link-icon">🌐</div>
+        <div class="link-info">
+          <strong>Site oficial</strong>
+          <span>lordehost.com.br</span>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+
+      <a href="https://chat.whatsapp.com/LK0yHAuKkUX3xpUM90ugII" target="_blank" rel="noopener" class="link-card reveal">
+        <div class="link-icon">💬</div>
+        <div class="link-info">
+          <strong>Grupo oficial</strong>
+          <span>Comunidade LordeHost no WhatsApp</span>
+        </div>
+        <div class="link-arrow">↗</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="duvidas">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="section-tag">Central de ajuda</span>
+      <h2>Perguntas frequentes</h2>
+      <p>
+        Algumas respostas para facilitar sua consulta.
+      </p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>Qual é a validade dos LordeCredits?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Conforme a tabela informada, todos os planos de LordeCredits possuem validade de 30 dias (1 mês).</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>Quais quantidades de créditos estão disponíveis?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>As opções apresentadas são de 100, 200, 300, 400, 500 e 600 LordeCredits.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>Quais são os valores dos Slots?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>1 Slot custa R$ 3,00; 2 Slots custam R$ 6,00; e 3 Slots custam R$ 9,00.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>Onde posso confirmar os detalhes?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Consulte diretamente o site oficial da LordeHost ou entre em contato pelos canais oficiais da plataforma.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span>Esta página é o site oficial da LordeHost?</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Não. Esta é uma página de apresentação da parceria ZRX & MST × LORDEHOST. O site oficial da plataforma é lordehost.com.br.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 </main>
 
+<!-- RODAPÉ -->
+
 <footer>
-<div class="container">
-<div class="footer-logo gradient">ZRX & MST × LORDEHOST</div>
+  <div class="container">
 
-<div class="footer-links">
-<a href="index.html">Página inicial</a>
-<a href="#creditos">LordeCredits</a>
-<a href="#slots">Slots</a>
-<a href="#oficiais">Links oficiais</a>
-<a href="https://lordehost.com.br" target="_blank" rel="noopener noreferrer">Site LordeHost</a>
-</div>
+    <div class="footer-main">
 
-<div class="copy">
-Página de divulgação da parceria ZRX & MST × LORDEHOST.<br>
-© <span id="year"></span> ZRX & MST.
-</div>
-</div>
+      <div class="footer-about">
+        <a href="#inicio" class="brand">
+          <div class="brand-icon">Z</div>
+          <div>
+            ZRX & MST
+            <small>PREMIUM PARTNERSHIP</small>
+          </div>
+        </a>
+
+        <p>
+          Uma apresentação especial da parceria ZRX & MST × LORDEHOST.
+          Tecnologia, conexão e informações organizadas em uma experiência
+          visual premium.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>NAVEGAÇÃO</h4>
+        <a href="#inicio">Início</a>
+        <a href="#parceria">Parceria</a>
+        <a href="#creditos">LordeCredits</a>
+        <a href="#slots">Slots</a>
+        <a href="#duvidas">Perguntas frequentes</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>LINKS IMPORTANTES</h4>
+        <a href="https://lordehost.com.br" target="_blank" rel="noopener">Site LordeHost ↗</a>
+        <a href="https://chat.whatsapp.com/LK0yHAuKkUX3xpUM90ugII" target="_blank" rel="noopener">Grupo WhatsApp ↗</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ZRX & MST. Todos os direitos reservados.</span>
+      <span>Projeto e apresentação: <strong>@AKIRAZR</strong></span>
+    </div>
+
+  </div>
 </footer>
 
-<button class="top" id="top" aria-label="Voltar ao topo">↑</button>
+<button class="back-top" id="backTop" aria-label="Voltar ao topo">↑</button>
 
 <script>
-"use strict";
+/* MENU MOBILE */
 
-const menu = document.getElementById("menu");
-const links = document.getElementById("links");
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-menu.addEventListener("click",() => {
-  const open = links.classList.toggle("open");
-  menu.textContent = open ? "×" : "☰";
-  menu.setAttribute("aria-expanded",String(open));
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰";
 });
 
-links.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click",() => {
-    links.classList.remove("open");
-    menu.textContent = "☰";
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.textContent = "☰";
   });
 });
+
+/* ANO AUTOMÁTICO */
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* PROGRESSO DE LEITURA E BOTÃO TOPO */
 
 const progress = document.getElementById("progress");
-const topButton = document.getElementById("top");
+const backTop = document.getElementById("backTop");
 
-function updateScroll() {
-  const max = document.documentElement.scrollHeight - innerHeight;
+function updateScroll(){
+  const scrollTop = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const percentage = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
 
-  progress.style.width =
-    (max > 0 ? scrollY / max * 100 : 0) + "%";
-
-  topButton.classList.toggle("show",scrollY > 400);
+  progress.style.width = percentage + "%";
+  backTop.classList.toggle("show", scrollTop > 450);
 }
 
-addEventListener("scroll",updateScroll,{passive:true});
-addEventListener("resize",updateScroll);
-
+window.addEventListener("scroll", updateScroll, {passive:true});
 updateScroll();
 
-topButton.addEventListener("click",() => {
-  scrollTo({
-    top:0,
-    behavior:matchMedia("(prefers-reduced-motion: reduce)").matches
-      ? "auto"
-      : "smooth"
+backTop.addEventListener("click", () => {
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+/* FAQ */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".faq-item");
+    const wasActive = item.classList.contains("active");
+
+    document.querySelectorAll(".faq-item").forEach(faq => {
+      faq.classList.remove("active");
+    });
+
+    if(!wasActive){
+      item.classList.add("active");
+    }
   });
 });
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+/* ANIMAÇÕES AO ROLAR */
 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{
+  threshold:0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
 </script>
 
 </body>
